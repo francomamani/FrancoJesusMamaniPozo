@@ -1,0 +1,28 @@
+<form [formGroup]="productForm">
+  <section>
+    <label for="">ID</label>
+    <input type="text" formControlName="id" />
+  </section>
+  <section>
+    <label for="id">Nombre</label>
+    <input type="text" formControlName="name" id="id" />
+  </section>
+  <section>
+    <label for="description">Descripcion</label>
+    <input type="text" formControlName="description" id="description" />
+  </section>
+  <section>
+    <label for="logo">Logo</label>
+    <input type="text" formControlName="logo" id="logo" />
+  </section>
+  <section>
+    <label for="dateRelease">Fecha Liberacion</label>
+    <input type="date" formControlName="dateRelease" id="dateRelease" />
+  </section>
+  <section>
+    <label for="dateRevision">Fecha Revision</label>
+    <input type="date" formControlName="dateRevision" id="dateRevision" />
+  </section>
+  <button>Reiniciar</button>
+  <button (click)="save()">Enviar</button>
+</form>

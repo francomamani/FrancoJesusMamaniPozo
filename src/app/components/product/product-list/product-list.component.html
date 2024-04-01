@@ -1,0 +1,24 @@
+<input type="search" [formControl]="searchControl" placeholder="Search" />
+<button (click)="openCreateProduct()">Agregar</button>
+<table>
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Nombre del producto</th>
+      <th>Descripcion</th>
+      <th>Fecha de liberacion</th>
+      <th>Fecha de reestructuracion</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (product of products; track $index) {
+    <tr>
+      <td>{{ product.logo }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.dateRelease }}</td>
+      <td>{{ product.dateRevision }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
