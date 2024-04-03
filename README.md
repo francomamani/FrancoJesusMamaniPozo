@@ -15,6 +15,4 @@ Run this command `npm run start` and open `http://localhost:4200`
 ## Unit Testing Watch (Optional)
 `npm run test:watch`
 
-`npm run test`
-
 
