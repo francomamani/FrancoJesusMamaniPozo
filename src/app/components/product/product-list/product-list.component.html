@@ -13,11 +13,12 @@
   <tbody>
     @for (product of products; track $index) {
     <tr>
-      <td>{{ product.logo }}</td>
+      <td><img [src]="product.logo" [alt]="product.name" class="logo"></td>
       <td>{{ product.name }}</td>
       <td>{{ product.description }}</td>
-      <td>{{ product.dateRelease }}</td>
-      <td>{{ product.dateRevision }}</td>
+      <td>{{ product.dateRelease | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ product.dateRevision | date: 'dd/MM/yyyy' }}</td>
+      <td><button (click)="openEditProduct(product.id)">Editar</button></td>
     </tr>
     }
   </tbody>

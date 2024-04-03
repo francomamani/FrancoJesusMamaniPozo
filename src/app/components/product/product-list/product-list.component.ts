@@ -65,6 +65,10 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['create']);
   }
 
+  public openEditProduct(id: string): void {
+    this.router.navigate([`edit/${id}`]);
+  }
+
   private executeCommand<T>(command: Command<T>): void {
     this.productInvoker.executeCommand(command).subscribe((response: T) => {
       console.log('response', response);

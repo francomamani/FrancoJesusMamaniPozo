@@ -1,28 +1,78 @@
-<form [formGroup]="productForm">
+<form [formGroup]="productForm" (ngSubmit)="process()">
+  {{ title }}
   <section>
-    <label for="">ID</label>
-    <input type="text" formControlName="id" />
+    <label for="id">ID</label>
+    <input type="text" formControlName="id" id="id" autocomplete="off"/>
+    <div *ngIf="idAlreadyExists">
+      ID no valido!
+    </div>
+  <div *ngIf="hasErrors('id')">
+      <div *ngIf="productForm.get('id')?.hasError('required')">
+        Este campo es requerido!
+      </div>
+      <div *ngIf="productForm.get('id')?.hasError('minlength')">
+        Minimo {{ getMinLength("id") }} caracteres
+      </div>
+      <div *ngIf="productForm.get('id')?.hasError('maxlength')">
+        Maximo {{ getMaxLength("id") }} caracteres
+      </div>
+    </div>
   </section>
   <section>
-    <label for="id">Nombre</label>
-    <input type="text" formControlName="name" id="id" />
+    <label for="name">Nombre</label>
+    <input type="text" formControlName="name" id="name" autocomplete="off" />
+    <div *ngIf="hasErrors('name')">
+      <div *ngIf="productForm.get('name')?.hasError('required')">
+        Este campo es requerido!
+      </div>
+      <div *ngIf="productForm.get('name')?.hasError('minlength')">
+        Minimo {{ getMinLength("name") }} caracteres
+      </div>
+      <div *ngIf="productForm.get('name')?.hasError('maxlength')">
+        Maximo {{ getMaxLength("name") }} caracteres
+      </div>
+    </div>
   </section>
   <section>
     <label for="description">Descripcion</label>
-    <input type="text" formControlName="description" id="description" />
+    <input type="text" formControlName="description" id="description" autocomplete="off"/>
+    <div *ngIf="hasErrors('description')">
+      <div *ngIf="productForm.get('description')?.hasError('required')">
+        Este campo es requerido!
+      </div>
+      <div *ngIf="productForm.get('description')?.hasError('minlength')">
+        Minimo {{ getMinLength("description") }} caracteres
+      </div>
+      <div *ngIf="productForm.get('description')?.hasError('maxlength')">
+        Maximo {{ getMaxLength("description") }} caracteres
+      </div>
+    </div>
   </section>
   <section>
     <label for="logo">Logo</label>
-    <input type="text" formControlName="logo" id="logo" />
+    <input type="text" formControlName="logo" id="logo" autocomplete="off"/>
+    <div *ngIf="hasErrors('logo')">
+      <div *ngIf="productForm.get('logo')?.hasError('required')">
+        Este campo es requerido!
+      </div>
+    </div>
   </section>
   <section>
     <label for="dateRelease">Fecha Liberacion</label>
-    <input type="date" formControlName="dateRelease" id="dateRelease" />
+    <input type="date" formControlName="dateRelease" id="dateRelease" autocomplete="off"/>
+    <div *ngIf="hasErrors('dateRelease')">
+      <div *ngIf="productForm.get('dateRelease')?.hasError('required')">
+        Este campo es requerido!
+      </div>
+      <div *ngIf="productForm.get('dateRelease')?.hasError('invalidDate')">
+        Fecha no valida!
+      </div>
+    </div>
   </section>
   <section>
     <label for="dateRevision">Fecha Revision</label>
-    <input type="date" formControlName="dateRevision" id="dateRevision" />
+    <input type="date" formControlName="dateRevision" id="dateRevision" autocomplete="off"/>
   </section>
-  <button>Reiniciar</button>
-  <button (click)="save()">Enviar</button>
+  <button (click)="reset()">Reiniciar</button>
+  <button type="submit" [disabled]="productForm.invalid">Enviar</button>
 </form>

@@ -1,4 +1,4 @@
-import { UpdateProductsCommand } from './update-products.command';
+import { UpdateProductsCommand } from './update-product.command';
 
 describe('UpdateProductsCommand', () => {
   it('should create an instance', () => {

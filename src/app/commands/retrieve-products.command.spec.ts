@@ -1,4 +1,4 @@
-import { RetrieveProducts } from './retrieve-products';
+import { RetrieveProducts } from './retrieve-products.command';
 
 describe('RetrieveProducts', () => {
   it('should create an instance', () => {

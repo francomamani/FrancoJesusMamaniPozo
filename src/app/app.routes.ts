@@ -12,6 +12,10 @@ export const routes: Routes = [
     component: ProductFormComponent,
   },
   {
+    path: 'edit/:id',
+    component: ProductFormComponent,
+  },
+  {
     path: '**',
     component: ProductListComponent,
   },

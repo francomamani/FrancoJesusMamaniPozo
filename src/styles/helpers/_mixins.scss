@@ -1,0 +1,47 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin font-face($name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $name;
+    src: url("#{$path}.eot");
+    src: url("#{$path}.woff2") format("woff2"),
+      url("#{$path}.woff") format("woff"),
+      url("#{$path}.ttf") format("truetype");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+$breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 991px,
+  lg: 1920px,
+  xl: 6000px,
+);
+
+@mixin break($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint #{$breakpoint}";
+  }
+}
