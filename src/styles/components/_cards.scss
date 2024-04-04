@@ -1,0 +1,10 @@
+@import "../helpers/variables";
+@import "../helpers/mixins";
+
+
+.card {
+  background-color: $light;
+  padding: 48px;
+  border-radius: 6px;
+  margin: 12px 0;
+}

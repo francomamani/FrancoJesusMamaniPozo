@@ -1,0 +1,18 @@
+@import "../helpers/mixins";
+
+@include font-face("Roboto", "../assets/fonts/Roboto-Thin", 100);
+@include font-face("Roboto", "../assets/fonts/Roboto-ThinItalic", 100);
+@include font-face("Roboto", "../assets/fonts/Roboto-Light", 300);
+@include font-face("Roboto", "../assets/fonts/Roboto-LightItalic", 300);
+@include font-face("Roboto", "../assets/fonts/Roboto-Italic", 400);
+@include font-face("Roboto", "../assets/fonts/Roboto-Regular", 400);
+@include font-face("Roboto", "../assets/fonts/Roboto-Medium", 500);
+@include font-face("Roboto", "../assets/fonts/Roboto-MediumItalic", 500);
+@include font-face("Roboto", "../assets/fonts/Roboto-Bold", 700);
+@include font-face("Roboto", "../assets/fonts/Roboto-BoldItalic", 700);
+@include font-face("Roboto", "../assets/fonts/Roboto-Black", 900);
+@include font-face("Roboto", "../assets/fonts/Roboto-BlackItalic", 900);
+
+body {
+  font-family: "Roboto", sans-serif;
+}

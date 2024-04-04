@@ -16,13 +16,10 @@
   flex-wrap: $wrap;
 }
 
-@mixin font-face($name, $path, $weight: normal, $style: normal) {
+@mixin font-face($name, $path, $weight: 400, $style: normal) {
   @font-face {
-    font-family: $name;
-    src: url("#{$path}.eot");
-    src: url("#{$path}.woff2") format("woff2"),
-      url("#{$path}.woff") format("woff"),
-      url("#{$path}.ttf") format("truetype");
+    font-family: $name, sans-serif;
+    src: url("#{$path}.ttf") format("truetype");
     font-weight: $weight;
     font-style: $style;
   }

@@ -71,10 +71,8 @@ export class ProductListComponent implements OnInit {
 
   private executeCommand<T>(command: Command<T>): void {
     this.productInvoker.executeCommand(command).subscribe((response: T) => {
-      console.log('response', response);
       if (response instanceof Array) {
         this.products = response;
-        console.log(response);
       }
 
       if (response instanceof String) {

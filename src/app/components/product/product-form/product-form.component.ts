@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, Inject, Input, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -16,7 +16,7 @@ import { UpdateProductCommand } from '../../../commands/update-product.command';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DateService } from '../../../services/date.service';
 import { isCurrentDate } from '../../../validators/date.validator';
-import { debounce, debounceTime, distinctUntilChanged, startWith } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-product-form',
