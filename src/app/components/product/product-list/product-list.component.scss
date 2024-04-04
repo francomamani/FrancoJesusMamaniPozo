@@ -1,6 +1,14 @@
 @import "../../../../styles/helpers/helpers";
 
-.search-container {
-    @include flex(row, space-between);
-    padding: 12px 0;
+.search-container,
+.table-controls {
+  @include flex(row, space-between, center);
+  padding: 12px 0;
+}
+
+.table-controls {
+    select {
+        outline: none;
+        padding: 3px 12px;
+    }
 }

@@ -21,6 +21,8 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
   products: Product[];
   searchControl: FormControl;
+  pagination: number[];
+  paginationControl: FormControl;
 
   private productService = inject(ProductService);
   private productInvoker = inject(ProductInvokerService);
@@ -28,7 +30,9 @@ export class ProductListComponent implements OnInit {
 
   constructor() {
     this.products = [];
+    this.pagination = [5, 10, 15];
     this.searchControl = new FormControl('');
+    this.paginationControl = new FormControl(5);
   }
 
   ngOnInit(): void {

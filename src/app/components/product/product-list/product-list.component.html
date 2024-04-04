@@ -41,5 +41,18 @@
         }
       </tbody>
     </table>
+
+    <div class="table-controls">
+      <span> {{ products.length }} productos </span>
+      <select
+        name="pagination"
+        id="pagination"
+        [formControl]="paginationControl"
+      >
+        @for(item of pagination; track $index) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+    </div>
   </div>
 </div>
