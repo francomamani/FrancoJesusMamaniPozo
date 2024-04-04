@@ -139,6 +139,7 @@ export class ProductFormComponent implements OnInit {
 
   public update(): void {
     const product: Product = this.productForm.value;
+    product.id = this.productForm.get('id')?.value;
     product.dateRevision = this.productForm.get('dateRevision')?.value;
     const updateProductCommand = new UpdateProductCommand(
       this.productService,
