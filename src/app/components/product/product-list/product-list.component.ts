@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../interfaces/product';
@@ -22,11 +22,11 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   searchControl: FormControl;
 
-  constructor(
-    private productService: ProductService,
-    private productInvoker: ProductInvokerService,
-    private router: Router
-  ) {
+  private productService = inject(ProductService);
+  private productInvoker = inject(ProductInvokerService);
+  private router = inject(Router);
+
+  constructor() {
     this.products = [];
     this.searchControl = new FormControl('');
   }
@@ -65,8 +65,9 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['create']);
   }
 
-  public openEditProduct(id: string): void {
-    this.router.navigate([`edit/${id}`]);
+  public openEditProduct(product: Product): void {
+    this.productService.setProduct(product);
+    this.router.navigate([`edit/${product.id}`]);
   }
 
   private executeCommand<T>(command: Command<T>): void {

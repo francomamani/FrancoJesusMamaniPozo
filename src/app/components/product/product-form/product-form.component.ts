@@ -1,5 +1,11 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -40,6 +46,7 @@ export class ProductFormComponent implements OnInit {
   private datePipe = inject(DatePipe);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
+  private cdr = inject(ChangeDetectorRef);
 
   constructor() {
     this.id = null;
@@ -77,8 +84,7 @@ export class ProductFormComponent implements OnInit {
     this.productForm.get('dateRevision')?.disable();
     if (this.id) {
       this.title = 'Formulario de Edicion';
-      this.patchId();
-      this.productForm.get('id')?.disable();
+      this.patchProductForm(this.id);
     } else {
       this.title = 'Formulario de Registro';
     }
@@ -105,7 +111,6 @@ export class ProductFormComponent implements OnInit {
             'UTC'
           );
           this.productForm.patchValue({ dateRevision });
-          console.log(this.productForm);
         });
     }
   }
@@ -146,7 +151,7 @@ export class ProductFormComponent implements OnInit {
     this.isResetted = true;
     this.productForm.reset();
     if (this.id) {
-      this.patchId();
+      this.patchProductForm(this.id);
     }
   }
 
@@ -175,10 +180,14 @@ export class ProductFormComponent implements OnInit {
     return null;
   }
 
-  private patchId(): void {
-    this.productForm.patchValue({
-      id: this.id,
-    });
+  private patchProductForm(id: string): void {
+    const product = this.productService.getProduct(id);
+    if (product) {
+      const dateRelease = this.datePipe.transform(product.dateRelease, 'yyyy-MM-dd'); 
+      const dateRevision = this.datePipe.transform(product.dateRevision, 'yyyy-MM-dd'); 
+      this.productForm.patchValue({ ...product, dateRelease, dateRevision });
+      this.productForm.get('id')?.disable();
+    }
   }
 
   private executeCommand<T>(command: Command<T>): void {

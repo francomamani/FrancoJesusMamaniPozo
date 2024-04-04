@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { Observable, Subject} from 'rxjs';
 import { Product } from '../interfaces/product';
 import { baseUrl } from '../app.config';
 import { map, switchMap } from 'rxjs/operators';
@@ -9,7 +9,13 @@ import { map, switchMap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(private http: HttpClient) {}
+
+  private productsMap: Map<string, Product>;
+  private http = inject(HttpClient);
+
+  constructor() {
+    this.productsMap = new Map();
+  }
 
   public getAll(): Observable<Product[]> {
     return this.http.get<Product[]>(`${baseUrl}/bp/products`);
@@ -46,5 +52,13 @@ export class ProductService {
         )
       )
     );
+  }
+
+  public setProduct(product: Product): void {
+    this.productsMap.set(product.id, product);
+  }
+
+  public getProduct(id: string): Product | null {
+    return this.productsMap.get(id) ?? null;
   }
 }
