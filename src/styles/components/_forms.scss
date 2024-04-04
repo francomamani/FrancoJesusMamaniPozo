@@ -32,10 +32,7 @@
     &__button-container {
       width: 100%;
       @include flex(row, center);
-
-      & > * {
-        margin: 0 24px;
-      }
+      gap: 48px;
     }
 
     @include break(lg) {
