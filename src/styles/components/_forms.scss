@@ -12,6 +12,7 @@
     h1 {
       width: 100%;
       font-size: 18pt;
+      font-weight: bold;
       border-bottom: 2px solid $border-color;
       text-align: center;
       padding: 12px 0;
@@ -21,11 +22,30 @@
     section {
       @include flex(column, flex-start);
       width: 48%;
-      margin-bottom: 12px;
+      margin-bottom: 24px;
+      label {
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+    }
+
+    &__button-container {
+      width: 100%;
+      @include flex(row, center);
+
+      & > * {
+        margin: 0 24px;
+      }
     }
 
     @include break(lg) {
       width: 720px;
     }
   }
+}
+
+.error {
+  font-size: 10pt;
+  color: $danger-color;
+  margin-top: 6px;
 }

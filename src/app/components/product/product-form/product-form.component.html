@@ -12,7 +12,7 @@
           autocomplete="off"
         />
         <div *ngIf="idAlreadyExists">ID no valido!</div>
-        <div *ngIf="hasErrors('id')">
+        <div *ngIf="hasErrors('id')" class="error">
           <div *ngIf="productForm.get('id')?.hasError('required')">
             Este campo es requerido!
           </div>
@@ -33,7 +33,7 @@
           id="name"
           autocomplete="off"
         />
-        <div *ngIf="hasErrors('name')">
+        <div *ngIf="hasErrors('name')" class="error">
           <div *ngIf="productForm.get('name')?.hasError('required')">
             Este campo es requerido!
           </div>
@@ -54,7 +54,7 @@
           id="description"
           autocomplete="off"
         />
-        <div *ngIf="hasErrors('description')">
+        <div *ngIf="hasErrors('description')" class="error">
           <div *ngIf="productForm.get('description')?.hasError('required')">
             Este campo es requerido!
           </div>
@@ -75,7 +75,7 @@
           id="logo"
           autocomplete="off"
         />
-        <div *ngIf="hasErrors('logo')">
+        <div *ngIf="hasErrors('logo')" class="error">
           <div *ngIf="productForm.get('logo')?.hasError('required')">
             Este campo es requerido!
           </div>
@@ -90,13 +90,11 @@
           id="dateRelease"
           autocomplete="off"
         />
-        <div *ngIf="hasErrors('dateRelease')">
+        <div *ngIf="hasErrors('dateRelease')" class="error">
           <div *ngIf="productForm.get('dateRelease')?.hasError('required')">
             Este campo es requerido!
           </div>
-          <div
-            *ngIf="productForm.get('dateRelease')?.hasError('invalidDate')"
-          >
+          <div *ngIf="productForm.get('dateRelease')?.hasError('invalidDate')">
             Fecha no valida!
           </div>
         </div>
@@ -111,16 +109,18 @@
           autocomplete="off"
         />
       </section>
-      <button class="button button--secondary" (click)="reset()">
-        Reiniciar
-      </button>
-      <button
-        type="submit"
-        class="button button--primary"
-        [disabled]="productForm.invalid"
-      >
-        Enviar
-      </button>
+      <div class="form__button-container">
+        <button class="button button--secondary" (click)="reset()">
+          Reiniciar
+        </button>
+        <button
+          type="submit"
+          class="button button--primary"
+          [disabled]="productForm.invalid"
+        >
+          Enviar
+        </button>
+      </div>
     </form>
   </div>
 </div>
