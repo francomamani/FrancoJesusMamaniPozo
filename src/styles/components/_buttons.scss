@@ -1,0 +1,18 @@
+@import "../helpers/variables";
+
+.button {
+  border: none;
+  border-radius: 3px;
+  color: $button-text-color;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: bold;
+
+  &--primary {
+    background-color: $primary-color;
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+  }
+}

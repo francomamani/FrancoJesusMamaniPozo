@@ -1,0 +1,6 @@
+@import "../../../../styles/helpers/helpers";
+
+.search-container {
+    @include flex(row, space-between);
+    padding: 12px 0;
+}

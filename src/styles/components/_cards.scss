@@ -4,7 +4,8 @@
 
 .card {
   background-color: $light;
-  padding: 48px;
+  padding: 24px;
   border-radius: 6px;
   margin: 12px 0;
+  box-sizing: border-box;
 }

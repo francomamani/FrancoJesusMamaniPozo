@@ -1,6 +1,8 @@
 <div class="content">
-  <input type="search" [formControl]="searchControl" placeholder="Search" />
-  <button (click)="openCreateProduct()">Agregar</button>
+  <div class="search-container">
+    <input type="search" class="input" [formControl]="searchControl" placeholder="Search" />
+    <button class="button button--primary" (click)="openCreateProduct()">Agregar</button>
+  </div>
   
   <div class="card">
     <table class="table">
