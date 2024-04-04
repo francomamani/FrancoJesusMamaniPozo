@@ -184,8 +184,14 @@ export class ProductFormComponent implements OnInit {
   private patchProductForm(id: string): void {
     const product = this.productService.getProduct(id);
     if (product) {
-      const dateRelease = this.datePipe.transform(product.dateRelease, 'yyyy-MM-dd'); 
-      const dateRevision = this.datePipe.transform(product.dateRevision, 'yyyy-MM-dd'); 
+      const dateRelease = this.datePipe.transform(
+        product.dateRelease,
+        'yyyy-MM-dd', 'UTC'
+      );
+      const dateRevision = this.datePipe.transform(
+        product.dateRevision,
+        'yyyy-MM-dd', 'UTC'
+      );
       this.productForm.patchValue({ ...product, dateRelease, dateRevision });
       this.productForm.get('id')?.disable();
     }

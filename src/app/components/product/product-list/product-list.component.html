@@ -31,10 +31,11 @@
           </td>
           <td>{{ product.name }}</td>
           <td>{{ product.description }}</td>
-          <td>{{ product.dateRelease | date : "dd/MM/yyyy" }}</td>
-          <td>{{ product.dateRevision | date : "dd/MM/yyyy" }}</td>
+          <td>{{ product.dateRelease | date : "dd/MM/yyyy" : "UTC" }}</td>
+          <td>{{ product.dateRevision | date : "dd/MM/yyyy" : "UTC" }}</td>
           <td>
             <button (click)="openEditProduct(product)">Editar</button>
+            <button (click)="remove(product)">Eliminar</button>
           </td>
         </tr>
         }

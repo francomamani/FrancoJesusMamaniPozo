@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, Subject} from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Product } from '../interfaces/product';
 import { baseUrl } from '../app.config';
-import { map, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-
   private productsMap: Map<string, Product>;
   private http = inject(HttpClient);
 
@@ -30,8 +29,9 @@ export class ProductService {
   }
 
   public delete(id: string): Observable<string> {
-    return this.http.delete<string>(`${baseUrl}/bp/products`, {
+    return this.http.delete(`${baseUrl}/bp/products`, {
       params: { id },
+      responseType: 'text',
     });
   }
 

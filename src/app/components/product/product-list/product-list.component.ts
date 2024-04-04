@@ -53,12 +53,18 @@ export class ProductListComponent implements OnInit {
     this.executeCommand(searchProductsCommand);
   }
 
-  public remove(id: string): void {
-    const removeProductCommand = new RemoveProductCommand(
-      this.productService,
-      id
-    );
-    this.executeCommand(removeProductCommand);
+  public remove(product: Product): void {
+    if (confirm(`¿Estas seguro de eliminar el producto ${product.name}?`)) {
+      const removeProductCommand = new RemoveProductCommand(
+        this.productService,
+        product.id
+      );
+      this.productInvoker.executeCommand(removeProductCommand).subscribe(() => {
+        this.products = this.products.filter(
+          (productItem: Product) => productItem.id !== product.id
+        );
+      });
+    }
   }
 
   public openCreateProduct(): void {
@@ -74,10 +80,6 @@ export class ProductListComponent implements OnInit {
     this.productInvoker.executeCommand(command).subscribe((response: T) => {
       if (response instanceof Array) {
         this.products = response;
-      }
-
-      if (response instanceof String) {
-        alert(response);
       }
     });
   }
