@@ -1,8 +1,8 @@
 <div class="content">
   <div class="form-container">
     <form [formGroup]="productForm" (ngSubmit)="process()" class="form">
-      <h1>{{ title }}</h1>
-      <section>
+      <h1 class="form__title">{{ title }}</h1>
+      <section class="form__control">
         <label for="id">ID</label>
         <input
           type="text"
@@ -24,7 +24,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="form__control">
         <label for="name">Nombre</label>
         <input
           type="text"
@@ -45,7 +45,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="form__control">
         <label for="description">Descripcion</label>
         <input
           type="text"
@@ -66,7 +66,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="form__control">
         <label for="logo">Logo</label>
         <input
           type="text"
@@ -81,7 +81,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="form__control">
         <label for="dateRelease">Fecha Liberacion</label>
         <input
           type="date"
@@ -99,7 +99,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="form__control">
         <label for="dateRevision">Fecha Revision</label>
         <input
           type="date"

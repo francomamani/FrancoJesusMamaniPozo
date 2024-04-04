@@ -9,7 +9,7 @@
     padding: 24px;
     box-sizing: border-box;
 
-    h1 {
+    &__title {
       width: 100%;
       font-size: 18pt;
       font-weight: bold;
@@ -19,7 +19,7 @@
       margin-bottom: 12px;
     }
 
-    section {
+    &__control {
       @include flex(column, flex-start);
       width: 48%;
       margin-bottom: 24px;
