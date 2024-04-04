@@ -11,7 +11,7 @@
           id="id"
           autocomplete="off"
         />
-        <div *ngIf="idAlreadyExists">ID no valido!</div>
+        <div *ngIf="idAlreadyExists" class="error">ID no valido!</div>
         <div *ngIf="hasErrors('id')" class="error">
           <div *ngIf="productForm.get('id')?.hasError('required')">
             Este campo es requerido!
