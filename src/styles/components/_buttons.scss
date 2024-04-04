@@ -2,6 +2,7 @@
 
 .button {
   border: none;
+  box-sizing: border-box;
   border-radius: 3px;
   color: $dark-blue;
   padding: 12px 24px;

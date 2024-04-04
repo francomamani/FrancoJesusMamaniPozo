@@ -1,0 +1,31 @@
+@import "../helpers/variables";
+@import "../helpers/mixins";
+.form-container {
+  @include flex(column, center, center);
+  .form {
+    @include flex(row, space-between, center, wrap);
+    background-color: $light;
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+
+    h1 {
+      width: 100%;
+      font-size: 18pt;
+      border-bottom: 2px solid $border-color;
+      text-align: center;
+      padding: 12px 0;
+      margin-bottom: 12px;
+    }
+
+    section {
+      @include flex(column, flex-start);
+      width: 48%;
+      margin-bottom: 12px;
+    }
+
+    @include break(lg) {
+      width: 720px;
+    }
+  }
+}

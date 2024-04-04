@@ -1,9 +1,16 @@
 <div class="content">
   <div class="search-container">
-    <input type="search" class="input" [formControl]="searchControl" placeholder="Search" />
-    <button class="button button--primary" (click)="openCreateProduct()">Agregar</button>
+    <input
+      type="search"
+      class="input"
+      [formControl]="searchControl"
+      placeholder="Search"
+    />
+    <button class="button button--primary" (click)="openCreateProduct()">
+      Agregar
+    </button>
   </div>
-  
+
   <div class="card">
     <table class="table">
       <thead>
@@ -19,15 +26,19 @@
       <tbody>
         @for (product of products; track $index) {
         <tr>
-          <td><img [src]="product.logo" [alt]="product.name" class="logo" /></td>
+          <td>
+            <img [src]="product.logo" [alt]="product.name" class="logo" />
+          </td>
           <td>{{ product.name }}</td>
           <td>{{ product.description }}</td>
           <td>{{ product.dateRelease | date : "dd/MM/yyyy" }}</td>
           <td>{{ product.dateRevision | date : "dd/MM/yyyy" }}</td>
-          <td><button (click)="openEditProduct(product.id)">Editar</button></td>
+          <td>
+            <button (click)="openEditProduct(product.id)">Editar</button>
+          </td>
         </tr>
         }
       </tbody>
     </table>
-  </div>  
+  </div>
 </div>
