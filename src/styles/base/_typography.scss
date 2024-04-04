@@ -1,17 +1,27 @@
 @import "../helpers/mixins";
 
-@include font-face("Roboto", "../assets/fonts/Roboto-Thin", 100);
-@include font-face("Roboto", "../assets/fonts/Roboto-ThinItalic", 100);
-@include font-face("Roboto", "../assets/fonts/Roboto-Light", 300);
-@include font-face("Roboto", "../assets/fonts/Roboto-LightItalic", 300);
-@include font-face("Roboto", "../assets/fonts/Roboto-Italic", 400);
-@include font-face("Roboto", "../assets/fonts/Roboto-Regular", 400);
-@include font-face("Roboto", "../assets/fonts/Roboto-Medium", 500);
-@include font-face("Roboto", "../assets/fonts/Roboto-MediumItalic", 500);
-@include font-face("Roboto", "../assets/fonts/Roboto-Bold", 700);
-@include font-face("Roboto", "../assets/fonts/Roboto-BoldItalic", 700);
-@include font-face("Roboto", "../assets/fonts/Roboto-Black", 900);
-@include font-face("Roboto", "../assets/fonts/Roboto-BlackItalic", 900);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-Thin", 100);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-ThinItalic", 100);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-Light", 300);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-LightItalic", 300);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-Italic", 400);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-Regular", 400);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-Medium", 500);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-MediumItalic", 500);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-Bold", 700);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-BoldItalic", 700);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-Black", 900);
+@include font-face("Roboto", "../assets/fonts/Roboto/Roboto-BlackItalic", 900);
+
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-ExtraLight", 100);
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-Light", 200);
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-Thin", 300);
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-Regular", 400);
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-Medium", 500);
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-Bold", 600);
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-SemiBold", 700);
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-ExtraBold", 800);
+@include font-face("RobotoSlab", "../assets/fonts/Roboto_Slab/RobotoSlab-Black", 900);
 
 body {
   font-family: "Roboto", sans-serif;

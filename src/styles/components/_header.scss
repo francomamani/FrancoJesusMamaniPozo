@@ -1,0 +1,17 @@
+@import "../helpers/variables";
+@import "../helpers/mixins";
+@import "../base/typography";
+
+header.header {
+  @include flex(row, center, center);
+  height: 90px;
+  text-align: center;
+  background-color: $light;
+
+  h1 {
+    font-family: "Roboto Slab", serif;
+    font-weight: bold;
+    font-size: 18pt;
+    color: $dark-blue;
+  }
+}

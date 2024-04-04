@@ -1,6 +1,6 @@
 @import "../helpers/mixins";
 .content {
-  @include size(100%);
-  padding: 0 10%;
+  @include size(100%, calc(100vh - 90px));
   box-sizing: border-box;
+  padding: 0 12%;
 }
